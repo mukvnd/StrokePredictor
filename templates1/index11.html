@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mukund's StrokePredictor</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style1.css') }}">
+  <!-- <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+	  width: 580px;
+	  align-self: auto;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+
+    input[type="string"],
+    select {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0069d9;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 16px;
+      text-align: center;
+      color: #888;
+    }
+  </style> -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>mukund's website</title>
+</head>
+<body>
+	<div class="container">
+		<h1>StrokePredictor</h1>
+		<form action="{{ url_for('predict')}}" method="post">
+			<div class="form-group">
+				<label for="age">Age:</label>
+				<input type="string" id="age" name="age" required>
+			</div>
+			<div class="form-group">
+				<label for="hypertension">Past history with hypertension?</label>
+				<select id="hypertension" name="hypertension" required>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="heart_disease">Past history with heart disease?</label>
+				<select id="heart_disease" name="heart_disease" required>
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</select>
+			</div>								  
+			<div class="form-group">
+				<label for="work_type">Work Type:</label>
+				<select id="work_type" name="work_type" required>
+					<option value="5">Private</option>
+					<option value="4">Govt_job</option>
+					<option value="3">Self-employed</option>
+					<option value="2">Children</option>
+					<option value="1">Never_worked</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="avg_glucose_level">Average Glucose Level:</label>
+				<input type="string" id="avg_glucose_level" name="avg_glucose_level" required>
+			</div>
+			<div class="form-group">
+				<label for="bmi">Body Mass Index:</label>
+				<input type="string" id="bmi" name="bmi" required>
+			</div>
+			<div class="form-group">
+				<label for="smoking_status">Smoking Status:</label>
+				<select id="smoking_status" name="smoking_status" required>
+					<option value="1">Never smoked</option> <option value="2">Formerly smoked</option> <option value="3">Smokes</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="gender">Gender:</label>
+				<select id="gender" name="gender" required>
+					<option value="0">Female</option> <option value="1">Male</option> <option value="2">Other</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="marital_status">Marital Status:</label>
+				<select id="marital_status" name="marital_status" required>
+					<option value="1">Married</option>
+					<option value="0">Unmarried</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="residence_type">Residence Type:</label>
+				<select id="residence_type" name="residence_type" required>
+					<option value="0">Rural</option>
+					<option value="1">Urban</option>
+				</select>
+			</div>
+			<button type="submit">Submit</button>
+		</form>
+		<p>Prediction: {{ prediction_text }}</p>
+	</div>
+</body>
+</html>
+
+
