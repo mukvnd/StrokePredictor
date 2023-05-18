@@ -14,7 +14,7 @@ According to the World Health Organization (WHO), stroke ranks as the second lea
 8) Residencial type, whether the individual lives in an urban or a rural area
 9) Smoking status, whether the individual currently smokes/used to smoke/never smoked
 
-##Insights
+## Insights
 - EDA and feature engineering performed using imputations and encodings.
 - The model was extensively trained on the above features.
 - Class imbalance resulted in the introduction of stratified k fold cross validation.
